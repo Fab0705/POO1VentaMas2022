@@ -5,15 +5,19 @@
 #include<conio.h>
 #include"ventaController.h"
 #include"../model/detalleCompra.h"
+#include"../model/detalleVenta.h"
+#include"detalleVentaController.h"
 #include"../../CLIENTES/controller/clienteController.h"
 #include"../../PRODUCTOS/controller/productoController.h"
 #include<fstream>
+#include <ctime>
 using namespace std;
-void generarCompra();
+void generarVenta(string);
 void buscarProdCom(int,int);
 void eliminarProCom();
 void listarProCom();
 int buscarxNomCompra();
+string fecha();
 
 class DetalleCompraController
 {
@@ -72,11 +76,12 @@ public:
 };
 
 DetalleCompraController* detCompraController = new DetalleCompraController();
-DetalleCompra objDet;
+DetalleCompra objDetCompra;
 
 float importe;
+float total = 0;
 
-void generarCompra()
+void generarVenta(string vendedor)
 {
 	int serie,
 		codPro,
@@ -90,7 +95,8 @@ void generarCompra()
 			flag,
 			flagE,
 			flagC,
-			flagB;
+			flagB,
+			flagBuscarOtraVez;
 	cout<<"\t\t\t\t**********G E N E R A R   C O M P R A***********\n";
 	cout<<"\t\t-----------------------------CLIENTE------------------------------\n";
 	cout<<"Desea agregar un nuevo cliente?(S/s): "<<endl;
@@ -102,8 +108,8 @@ void generarCompra()
 	flag = "a";
 	codCli = buscarxNomCompra();
 	//serie//
-	//fecha//
-	cout<<"-----------------------------PRODUCTOS------------------------------\n";
+	//fecha = fecha();
+	cout<<"\t-----------------------------PRODUCTOS------------------------------\n";
 	do
 	{
 		if(cont != 0)
@@ -135,7 +141,7 @@ void generarCompra()
 					cout<<"Desea seguir comprando de este producto?(S/s): ";
 					cin>>flagC;
 				} while(flagC == "S" || flagC == "s");
-				cout<<"--------------------------DETALLE COMPRA----------------------------\n";
+				cout<<"\t--------------------------DETALLE COMPRA----------------------------\n";
 				listarProCom();
 				cout<<"Desea eliminar alguna compra?(S/s): ";
 				cin>>flagE;
@@ -153,30 +159,47 @@ void generarCompra()
 				}
 				cout<<"Desea terminar la compra?(S/s): ";
 				cin>>flag;
+				system("cls");
+				if(flag == "S" ||  flag == "s")
+				{
+					goto listargrabar;
+				}
 			} while(flag != "S" || flag != "s");
 		}
 		else
 		{
 			cout<<"\t\t\t\tNo tenemos ese producto :C\n";
 			cout<<"Deseas buscar otra vez?(S/s): ";
-			cin>>flag;
+			cin>>flagBuscarOtraVez;
 			system("cls");
 		}
-	} while(flag == "S" || flag == "s");
-	listarProCom();
-	//----------------------GRABAR EN ARCHIVO VENTA-------------------------//
-	codVenta = ventaController->getCorrelativo();
-	Venta objVenta(codVenta,codCli,fecha,serie,importe);
-	/*Agregar el objeto al arreglo*/
-	ventaController->add(objVenta);
-	//grabar en archivo
-	ventaController->grabarEnArchivoVenta(objVenta);
-	//------------------GRABAR EN ARCHIVO DETALLE DE VENTA-------------------//
-	if(detCompraController->size() > 1)
+	} while(flagBuscarOtraVez == "S" || flagBuscarOtraVez == "s" || flag != "S" || flag != "s");
+	listargrabar:
 	{
-		
+		cout<<"\n\n\n\t\t---------------------------------VENTA EXITOSA!!!!-----------------------------------";
+		cout<<"\n\n\n\t\t-------------------------GRACIAS POR CONFIAR EN VENTAMAS-----------------------------";
+		listarProCom();
+		//----------------------GRABAR EN ARCHIVO VENTA-------------------------//
+		codVenta = ventaController->getCorrelativo();
+		Venta objVenta(codVenta,codCli,fecha,serie,total,vendedor);
+		/*Agregar el objeto al arreglo*/
+		ventaController->add(objVenta);
+		//grabar en archivo
+		ventaController->grabarEnArchivoVenta(objVenta);
+		//------------------GRABAR EN ARCHIVO DETALLE DE VENTA-------------------//
+		if(detCompraController->size() > 1)
+		{
+			for(int i = 0; i<detCompraController->size(); i++)
+			{
+				//crear objeto
+				DetalleVenta objDetVenta(codVenta,detCompraController->get(i).getCodProCom(), detCompraController->get(i).getCantProdCom(), detCompraController->get(i).getPrecProdCom(), detCompraController->get(i).getImCom());
+				//agregarlo al arreglo de objetos
+				detVentaController->add(objDetVenta);
+				//grabar en archivo
+				detVentaController->grabarEnArchivoDetalleVenta(objDetVenta);
+			}
+		}
 	}
-	//for para recorrer el arreglo de objetos y calcular el total
 	system("pause");
 	system("cls");
 }
@@ -196,10 +219,11 @@ void buscarProdCom(int codPro, int cantPro)
 		nombre = proObj.getNomPro();
 		precio = proObj.getPrePro();
 		importe = cantPro*proObj.getPrePro();
+		total = total + importe;
 		//Crear objeto de tipo DetalleCompra
-		DetalleCompra objDet(codPro, nombre, cantPro, precio, importe);
+		DetalleCompra objDetCompra(codPro, nombre, cantPro, precio, importe);
 		//Agregar el objeto al arreglo//
-		detCompraController->add(objDet);
+		detCompraController->add(objDetCompra);
 	}
 	else
 	{
@@ -264,3 +288,4 @@ int buscarxNomCompra()
 	system("cls");
 	return cliObj.getCodigo();
 }
+
