@@ -11,15 +11,17 @@ private:
 	string fecha;
 	int serie;
 	float total;
+	string vendedor;
 public:
 	Venta(){}
-	Venta(int codigoVenta, int codigoCliente, string fecha, int serie, float total)
+	Venta(int codigoVenta, int codigoCliente, string fecha, int serie, float total, string vendedor)
 	{
 		this->codigoVenta = codigoVenta;
 		this->codigoCliente = codigoCliente;
 		this->fecha = fecha;
 		this->serie = serie;
 		this->total = total;
+		this->vendedor = vendedor;
 	}
 	
 	void setFecha(string fecha)
@@ -50,5 +52,10 @@ public:
 	float getTotalVen()
 	{
 		return this->total;
+	}
+	
+	string getVendedor()
+	{
+		return this->vendedor;
 	}
 };
