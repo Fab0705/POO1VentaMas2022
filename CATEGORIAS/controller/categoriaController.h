@@ -11,6 +11,7 @@ void listOfItemsCat();
 void buscarCat();
 void modificarCat();
 void eliminarCat();
+int generarCod_0(int)
 string dameNomCat(int);
 
 class CategoriaController
@@ -207,10 +208,12 @@ void agrCategorias()
 	string nomCat;
 	string flag;
 	int cod;
+	int cod_0;
 	bool correcto = true;
 	do
 	{
 		cod = catController->getCorrelativo();
+		cod_0 = generarCod_0(cod);
 		cout<<"\t\t\t\t\t\t******("<<cod<<")*******\n";
 		cin.ignore();
 		cout<<"\t\t\t\t\t\tNombre de la categoria: ";
@@ -233,7 +236,7 @@ void agrCategorias()
 		
 		if(correcto == true)
 		{
-			Categoria cat(cod, nomCat);//creamos un objeto categoria 
+			Categoria cat(cod_0, nomCat);//creamos un objeto categoria 
 			
 			catController->add(cat);//agregamos el objeto a nuestro arreglo de objetos
 			
@@ -384,4 +387,11 @@ void menuCategoriasPersonal()
 		default:system("cls");cout<<"I\t\t\t\t\t\tNGRESA UNA OPCION CORRECTA[1-4]\n";
 		}
 	}while(opt!=3);
+}
+
+int generarCod_0(int i)
+{	
+	cout.fill  ('0');    
+	cout.width ( 8 );
+	return i;
 }
