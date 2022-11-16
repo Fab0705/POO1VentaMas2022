@@ -10,6 +10,7 @@ void listadoVen();
 void buscarVen();
 void modificarVen();
 void eliminarVen();
+int generarCod_0(int);
 
 class VendedorController
 {
@@ -207,12 +208,14 @@ void agrVendedores()
 {
 	string flag;
 	int 	cod;
+	int 	cod_0;
 	string 	nApeVen;
 	string	dir;
 	int 	edad;
 	do
 	{
 		cod = venController->getCorrelativo();
+		cod_0 = generarCod_0(cod);
 		cout<<"\n\n\n\n\n\n\t\t\t\t\t\t******("<<cod<<")*******\n";
 		cin.ignore();
 		cout<<"\t\t\t\t\t\tNombres y Apellidos: ";
@@ -399,4 +402,11 @@ void eliminarVen()
 	{
 		cout<<"\t\t\t\t\t\tNo se encontro el registro!\n";
 	}
+}
+
+int generarCod_0(int i)
+{	
+	cout.fill  ('0');    
+	cout.width ( 8 );
+	return i;
 }
