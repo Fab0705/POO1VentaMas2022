@@ -70,7 +70,7 @@ public:
 			archivoVenta.open("venta.csv",ios::app);
 			if(archivoVenta.is_open())
 			{
-				archivoVenta<<obj.getCodVenta()<<";"<<obj.getCodCliVen()<<";"<<obj.getFechaVen()<<";"<<obj.getSerieVen()<<";"<<obj.getTotalVen()<<";"<<obj.getVendedor()<<";"<<endl;
+				archivoVenta<<obj.getCodVenta()<<";"<<obj.getCodCliVen()<<";"<<obj.getFechaVen()<<";"<<obj.getTotalVen()<<";"<<obj.getVendedor()<<";"<<endl;
 				archivoVenta.close();					
 			}
 		}
@@ -90,7 +90,7 @@ public:
 			{
 				for(Venta x:vectorVenta)
 				{
-					archivoVenta<<x.getCodVenta()<<";"<<x.getCodCliVen()<<";"<<x.getFechaVen()<<";"<<x.getSerieVen()<<";"<<x.getTotalVen()<<";"<<x.getVendedor()<<";"<<endl;
+					archivoVenta<<x.getCodVenta()<<";"<<x.getCodCliVen()<<";"<<x.getFechaVen()<<";"<<x.getTotalVen()<<";"<<x.getVendedor()<<";"<<endl;
 				}
 				archivoVenta.close();					
 			}
@@ -108,7 +108,7 @@ public:
 			int 	i;
 			size_t 	posi;
 			string 	linea;
-			string 	temporal[6];
+			string 	temporal[5];
 			fstream	archivoVenta;
 			archivoVenta.open("venta.csv",ios::in);
 			if(archivoVenta.is_open())
@@ -124,7 +124,7 @@ public:
 					}
 					
 					Venta objVenta(stoi(temporal[0]),stoi(temporal[1]),
-									   temporal[2],stoi(temporal[3]),stof(temporal[4]),temporal[5]);
+									   temporal[2],stof(temporal[3]),temporal[4]);
 					
 					add(objVenta);
 				}
