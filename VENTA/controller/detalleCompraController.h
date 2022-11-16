@@ -3,6 +3,7 @@
 #include<iostream>
 #include<stdlib.h>
 #include<conio.h>
+#include<ctime>
 #include"ventaController.h"
 #include"../model/detalleCompra.h"
 #include"../model/detalleVenta.h"
@@ -17,7 +18,8 @@ void buscarProdCom(int,int);
 void eliminarProCom();
 void listarProCom();
 int buscarxNomCompra();
-string fecha();
+string generarFecha();
+int generarSerie(int);
 
 class DetalleCompraController
 {
@@ -83,8 +85,7 @@ float total = 0;
 
 void generarVenta(string vendedor)
 {
-	int serie,
-		codPro,
+	int codPro,
 		codCli,
 		cantPro,
 		codEli,
@@ -107,8 +108,7 @@ void generarVenta(string vendedor)
 	}
 	flag = "a";
 	codCli = buscarxNomCompra();
-	//serie//
-	//fecha = fecha();
+	fecha = generarFecha();
 	cout<<"\t-----------------------------PRODUCTOS------------------------------\n";
 	do
 	{
@@ -180,8 +180,8 @@ void generarVenta(string vendedor)
 		cout<<"\n\n\n\t\t-------------------------GRACIAS POR CONFIAR EN VENTAMAS-----------------------------";
 		listarProCom();
 		//----------------------GRABAR EN ARCHIVO VENTA-------------------------//
-		codVenta = ventaController->getCorrelativo();
-		Venta objVenta(codVenta,codCli,fecha,serie,total,vendedor);
+		codVenta = generarSerie(ventaController->getCorrelativo());
+		Venta objVenta(codVenta,codCli,fecha,total,vendedor);
 		/*Agregar el objeto al arreglo*/
 		ventaController->add(objVenta);
 		//grabar en archivo
@@ -289,3 +289,21 @@ int buscarxNomCompra()
 	return cliObj.getCodigo();
 }
 
+string generarFecha()
+{
+	time_t now = time(0);
+	tm* time = localtime(&now);
+
+	int anio = 1900 + time->tm_year;
+	int mes = time->tm_mon + 1;
+	int dia = time->tm_day;
+
+	return to_string(dia) + "/" + to_string(month) + "/" + to_string(anio);
+}
+
+int generarSerie(int i)
+{	
+	cout.fill  ('0');    
+	cout.width ( 8 );
+	return i;
+}
