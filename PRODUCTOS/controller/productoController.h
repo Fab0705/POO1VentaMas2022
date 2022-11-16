@@ -19,6 +19,8 @@ void buscarPro();
 void modificarPro();
 void eliminarPro();
 void listadoProductoCat();
+int generarCod_0(int);
+string removeCod_0(string);
 
 COORD coord = {0,0};
 
@@ -258,7 +260,9 @@ void addItemsPro()
 {
 	string flag;
 	int 	cod;
+	int 	cod_0;
 	int 	codCat;
+	int		codCat_0;
 	string 	nPro;
 	float	prePro;
 	int 	stck;
@@ -266,6 +270,7 @@ void addItemsPro()
 	{
 		
 		cod = proController->getCorrelativo();
+		cod_0 = generarCod_0(cod);
 		cout<<"\t\t\t\t\t\t******("<<cod<<")*******\n";
 		cin.ignore();
 		cout<<"\t\t\t\t\t\tNombre del producto:";
@@ -278,16 +283,17 @@ void addItemsPro()
 		cout<<"\t\t\t\t\t\t---------CODIGOS DE LAS CATEGORIAS-----------"<<endl;
 		for(int i = 0;i<catController->size();i++)
 		{
-			cout<<"\t\t\t\t\t\t"<<catController->get(i).getNomCat()<<"\t\t{"<<catController->get(i).getCodCat()<<"}\t"<<endl;
+			cout<<"\t\t\t\t\t\t"<<catController->get(i).getNomCat()<<"\t\t{"<<removeCod_0(to_string(catController->get(i).getCodCat()))<<"}\t"<<endl;
 		}
 		cout<<"\t\t\t\t\t\tIngrese el codigo: "<<endl;
 		cin>>codCat;
-		
-		
+
+		codCat_0 = generarCod_0(codCat);
+
 		cout<<"\t\t\t\t\t\tContinuar(S/s): ";
 		cin>>flag;
 		/*Crear el objeto de tipo producto*/
-		Producto objPro(cod,stck,prePro,nPro,codCat);
+		Producto objPro(cod_0,stck,prePro,nPro,codCat_0);
 		/*Agregar el objeto al arreglo*/
 		proController->add(objPro);
 		//grabar en archivo
@@ -527,4 +533,25 @@ void menuProductosPersonal()
 		default:system("cls");cout<<"I\t\t\t\t\t\tNGRESA UNA OPCION CORRECTA[1-4]\n";
 		}
 	}while(opt!=4);
+}
+
+int generarCod_0(int i)
+{	
+	cout.fill  ('0');    
+	cout.width ( 8 );
+	return i;
+}
+
+string removeCod_0(string str)
+{
+	// Count trailing zeros
+	int i = 0;
+	while (str[i] == '0')
+		i++;
+	
+	// The erase function removes i characters
+	// from given index (0 here)
+	str.erase(0, i);
+	
+	return str;
 }
