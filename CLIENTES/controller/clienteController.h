@@ -12,6 +12,7 @@ void buscar();
 void buscarxNom();
 void modificar();
 void eliminar();
+int generarCod_0(int);
 
 class ClienteController
 {
@@ -227,12 +228,14 @@ void addItems()
 {
 	string flag;
 	int 	cod;
+	int 	cod_0;
 	string 	nCli;
 	string	dni;
 	int 	edad;
 	do
 	{
 		cod = cliController->getCorrelativo();
+		cod_0 = generarCod_0(cod);
 		cout<<"\n\n\n\n\n\n\t\t\t\t\t\t******("<<cod<<")*******\n";
 		cin.ignore();
 		cout<<"\t\t\t\t\t\tNombres y Apellidos: ";
@@ -244,7 +247,7 @@ void addItems()
 		cout<<"\t\t\t\t\t\tContinuar(S/s): ";
 		cin>>flag;
 		/*Crear el objeto de tipo alumno*/
-		Cliente objCli(cod,nCli,dni,edad);
+		Cliente objCli(cod_0,nCli,dni,edad);
 		/*Agregar el objeto al arreglo*/
 		cliController->add(objCli);
 		//grabar en archivo
@@ -466,4 +469,11 @@ void buscarxNom()
 	}
 	system("pause");
 	system("cls");
+}
+
+int generarCod_0(int i)
+{	
+	cout.fill  ('0');    
+	cout.width ( 8 );
+	return i;
 }
