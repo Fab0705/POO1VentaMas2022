@@ -296,7 +296,7 @@ string generarFecha()
 
 	int anio = 1900 + time->tm_year;
 	int mes = time->tm_mon + 1;
-	int dia = time->tm_day;
+	int dia = time->tm_mday;
 
 	return to_string(dia) + "/" + to_string(month) + "/" + to_string(anio);
 }
