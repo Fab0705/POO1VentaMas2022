@@ -239,7 +239,7 @@ void eliminarProCom()
 		superior;
 	inferior = 0;
 	superior = detCompraController->size()-1;
-	cout<<"\t\t\t\tIngrese codigo a eliminar: ";
+	cout<<"\t\t\t\tIngrese el codigo a eliminar: ";
 	cin>>cod;
 	DetalleCompra objEliminar = detCompraController->getBuscarPorCodigo(cod, inferior, superior);
 	if(objEliminar.getNomProdCom() !="Error")

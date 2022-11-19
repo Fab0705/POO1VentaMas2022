@@ -218,7 +218,7 @@ void menuClientes()
 		case 4:system("cls");modificar();break;
 		case 5:system("cls");eliminar();break;
 		case 6:cout<<"\t\t\t\t\t\tGracias por usar nuestro programa\n";break;
-		default:system("cls");cout<<"\t\t\t\t\t\tINGRESA UNA OPCION CORRECTA[1-6]\n";
+		default:system("cls");cout<<"\t\t\t\t\t\tINGRESE UNA OPCION CORRECTA[1-6]\n";
 		}
 	}
 	while(opt!=6);
@@ -305,7 +305,7 @@ void modificar()
 		cont = 0;
 	inferior = 0;
 	superior = cliController->size()-1;
-	cout<<"\n\n\n\n\n\n\t\t\t\t\t\tIngresar el codigo a modificar:";
+	cout<<"\n\n\n\n\n\n\t\t\t\t\t\tIngrese el codigo a modificar:";
 	cin>>cod;
 	Cliente cliObj = cliController->getBuscarPorCodigo(cod, inferior, superior);
 	if(cliObj.getNomCli() != "Error")
@@ -442,7 +442,7 @@ void menuClientesPersonal()
 		case 1:system("cls");listOfItems();break;
 		case 2:system("cls");buscarxNom();break;
 		case 3:cout<<"\t\t\t\t\t\tGracias por usar nuestro programa\n";break;
-		default:system("cls");cout<<"\t\t\t\t\t\tINGRESA UNA OPCION CORRECTA[1-3]\n";
+		default:system("cls");cout<<"\t\t\t\t\t\tINGRESE UNA OPCION CORRECTA[1-3]\n";
 		}
 	}
 	while(opt!=3);

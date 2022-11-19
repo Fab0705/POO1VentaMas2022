@@ -187,7 +187,7 @@ void menuCategorias()
 		cout<<"\t\t\t\t\t\t*********MODIFICAR CATEGORIAS**********[4]\n\n";
 		cout<<"\t\t\t\t\t\t*********ELIMINAR CATEGORIAS***********[5]\n\n";
 		cout<<"\t\t\t\t\t\t*****************SALIR*****************[6]\n\n";
-		cout<<"\t\t\t\t\t\t***********INGRESAR UNA OPCION***********:";
+		cout<<"\t\t\t\t\t\t***********INGRESE UNA OPCION***********:";
 		cin>>opt;
 		switch(opt)
 		{
@@ -197,7 +197,7 @@ void menuCategorias()
 		case 4:system("cls");modificarCat();break;
 		case 5:system("cls");eliminarCat();break;
 		case 6:cout<<"\t\t\t\t\t\tGracias por usar nuestro programa\n";break;
-		default:system("cls");cout<<"INGRESAR UNA OPCION CORRECTA[1-6]\n";
+		default:system("cls");cout<<"INGRESE UNA OPCION VALIDA[1-6]\n";
 		}
 	}while(opt!=6);
 }
@@ -293,7 +293,7 @@ void modificarCat()
 		superior;
 	inferior = 0;
 	superior = catController->size()-1;
-	cout<<"\n\n\n\n\n\n\t\t\t\t\t\tIngresar el codigo a modificar:";
+	cout<<"\n\n\n\n\n\n\t\t\t\t\t\tIngrese el codigo a modificar:";
 	cin>>cod;
 	Categoria catObj = catController->getBuscarPorCodigo(cod, inferior, superior);
 	if(catObj.getNomCat() != "Error")
@@ -320,7 +320,7 @@ void modificarCat()
 		}
 		else
 		{
-			cout<<"\t\t\t\t\t\tNo encontro el registro a modificar!\n";
+			cout<<"\t\t\t\t\t\tNo se encontro el registro a modificar!\n";
 			system("pause");		
 		}
 	}
@@ -339,7 +339,7 @@ void eliminarCat()
 		superior;
 	inferior = 0;
 	superior = catController->size()-1;
-	cout<<"\t\t\t\t\t\tIngrese codigo a buscar:";
+	cout<<"\t\t\t\t\t\tIngrese el codigo a buscar:";
 	cin>>cod;
 	Categoria objEliminar = catController->getBuscarPorCodigo(cod, inferior, superior);
 	if(objEliminar.getNomCat() !="Error")
@@ -377,14 +377,14 @@ void menuCategoriasPersonal()
 		cout<<"\t\t\t\t\t\t***********LISTAR CATEGORIAS************[1]\n\n";
 		cout<<"\t\t\t\t\t\t***********BUSCAR CATEGORIAS************[2]\n\n";
 		cout<<"\t\t\t\t\t\t*****************SALIR******************[3]\n\n";
-		cout<<"\t\t\t\t\t\t************INGRESAR UNA OPCION************: ";
+		cout<<"\t\t\t\t\t\t************INGRESE UNA OPCION************: ";
 		cin>>opt;
 		switch(opt)
 		{
 		case 1:system("cls");listOfItemsCat();break;
 		case 2:system("cls");buscarCat();break;
 		case 3:cout<<"\t\t\t\t\t\tGracias por usar nuestro programa\n";break;
-		default:system("cls");cout<<"I\t\t\t\t\t\tINGRESAR UNA OPCION CORRECTA[1-4]\n";
+		default:system("cls");cout<<"I\t\t\t\t\t\tINGRESE UNA OPCION VALIDA[1-4]\n";
 		}
 	}while(opt!=3);
 }

@@ -250,7 +250,7 @@ void menuProductos()
 		case 5:system("cls");modificarPro();break;
 		case 6:system("cls");eliminarPro();break;
 		case 7:cout<<"\t\t\t\t\t\tGracias por usar nuestro programa\n";break;
-		default:system("cls");cout<<"I\t\t\t\t\t\tNGRESA UNA OPCION CORRECTA[1-6]\n";
+		default:system("cls");cout<<"I\t\t\t\t\t\tNGRESE UNA OPCION VALIDA[1-6]\n";
 		}
 	}while(opt!=7);
 }
@@ -353,7 +353,7 @@ void modificarPro()
 		superior;
 	inferior = 0;
 	superior = proController->size()-1;
-	cout<<"\n\n\n\n\n\n\t\t\t\t\t\tIngresar el codigo a modificar:";
+	cout<<"\n\n\n\n\n\n\t\t\t\t\t\tIngrese el codigo a modificar:";
 	cin>>cod;
 	Producto proObj = proController->getBuscarPorCodigo(cod, inferior, superior);
 	if(proObj.getNomPro() != "Error")
@@ -441,7 +441,7 @@ void modificarPro()
 						estado = proController->modificar(proObj,stock,precio,nomP,codCate);
 						break;
 					}
-					default:system("cls");"Ingrese una opcion valida[1-3]: ";
+					default:system("cls");"INGRESE UNA OPCION VALIDA[1-3]: ";
 				}
 			} while(opt != 5);
 			
@@ -530,7 +530,7 @@ void menuProductosPersonal()
 		case 2:system("cls");listadoProductoCat();break;
 		case 3:system("cls");buscarPro();break;
 		case 4:cout<<"\t\t\t\t\t\tGracias por usar nuestro programa\n";break;
-		default:system("cls");cout<<"I\t\t\t\t\t\tNGRESA UNA OPCION CORRECTA[1-4]\n";
+		default:system("cls");cout<<"I\t\t\t\t\t\tNGRESE UNA OPCION VALIDA[1-4]\n";
 		}
 	}while(opt!=4);
 }

@@ -123,11 +123,12 @@ AccesoControllerAdm* accAdmController = new AccesoControllerAdm();
 				do
 				{
 				cout<<"\n\n\n\n\n\n\n\n";
+				cout<<"\t\t\t\t\t**********VENTAMAS***********\n\n";
 				cout<<"\t\t\t\t\t**********MENU DE ACCESO***********\n\n";
 				cout<<"\t\t\t\t\t*******REGISTRAR PERSONAL*******[1]\n\n";
 				cout<<"\t\t\t\t\t*******ACCESO DE PERSONAL*******[2]\n\n";
 				cout<<"\t\t\t\t\t*************SALIR**************[3]\n\n";
-				cout<<"\t\t\t\t\t******Ingresar una opción*********: ";
+				cout<<"\t\t\t\t\t******Ingrese una opciï¿½n*********: ";
 				cin>>opt;
 				switch(opt)
 				{
