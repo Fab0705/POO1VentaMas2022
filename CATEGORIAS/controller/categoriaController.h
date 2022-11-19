@@ -187,7 +187,7 @@ void menuCategorias()
 		cout<<"\t\t\t\t\t\t*********MODIFICAR CATEGORIAS**********[4]\n\n";
 		cout<<"\t\t\t\t\t\t*********ELIMINAR CATEGORIAS***********[5]\n\n";
 		cout<<"\t\t\t\t\t\t*****************SALIR*****************[6]\n\n";
-		cout<<"\t\t\t\t\t\t***********INGRESE UNA OPCION***********:";
+		cout<<"\t\t\t\t\t\t***********INGRESAR UNA OPCION***********:";
 		cin>>opt;
 		switch(opt)
 		{
@@ -197,7 +197,7 @@ void menuCategorias()
 		case 4:system("cls");modificarCat();break;
 		case 5:system("cls");eliminarCat();break;
 		case 6:cout<<"\t\t\t\t\t\tGracias por usar nuestro programa\n";break;
-		default:system("cls");cout<<"INGRESA UNA OPCION CORRECTA[1-6]\n";
+		default:system("cls");cout<<"INGRESAR UNA OPCION CORRECTA[1-6]\n";
 		}
 	}while(opt!=6);
 }
@@ -377,14 +377,14 @@ void menuCategoriasPersonal()
 		cout<<"\t\t\t\t\t\t***********LISTAR CATEGORIAS************[1]\n\n";
 		cout<<"\t\t\t\t\t\t***********BUSCAR CATEGORIAS************[2]\n\n";
 		cout<<"\t\t\t\t\t\t*****************SALIR******************[3]\n\n";
-		cout<<"\t\t\t\t\t\t************INGRESE UNA OPCION************: ";
+		cout<<"\t\t\t\t\t\t************INGRESAR UNA OPCION************: ";
 		cin>>opt;
 		switch(opt)
 		{
 		case 1:system("cls");listOfItemsCat();break;
 		case 2:system("cls");buscarCat();break;
 		case 3:cout<<"\t\t\t\t\t\tGracias por usar nuestro programa\n";break;
-		default:system("cls");cout<<"I\t\t\t\t\t\tNGRESA UNA OPCION CORRECTA[1-4]\n";
+		default:system("cls");cout<<"I\t\t\t\t\t\tINGRESAR UNA OPCION CORRECTA[1-4]\n";
 		}
 	}while(opt!=3);
 }
