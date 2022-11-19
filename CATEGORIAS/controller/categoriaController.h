@@ -196,7 +196,7 @@ void menuCategorias()
 		case 3:system("cls");buscarCat();break;
 		case 4:system("cls");modificarCat();break;
 		case 5:system("cls");eliminarCat();break;
-		case 6:cout<<"\t\t\t\t\t\tGracias por usar nuestro programa\n";break;
+		case 6:cout<<"\t\t\t\t\t\tGracias por usar nuestro programa!!\n";break;
 		default:system("cls");cout<<"INGRESE UNA OPCION VALIDA[1-6]\n";
 		}
 	}while(opt!=6);
@@ -314,7 +314,7 @@ void modificarCat()
 		estado = catController->modificar(catObj,nomC);
 		if(estado == true)
 		{
-			cout<<"\t\t\t\t\t\tRegistro modificado satisfactoriamente!!!\n";
+			cout<<"\t\t\t\t\t\tRegistro modificado satisfactoriamente!!\n";
 			//Grabar en archivo
 			catController->grabarModificarEliminarArchivo();
 		}
@@ -383,7 +383,7 @@ void menuCategoriasPersonal()
 		{
 		case 1:system("cls");listOfItemsCat();break;
 		case 2:system("cls");buscarCat();break;
-		case 3:cout<<"\t\t\t\t\t\tGracias por usar nuestro programa\n";break;
+		case 3:cout<<"\t\t\t\t\t\tGracias por usar nuestro programa!!\n";break;
 		default:system("cls");cout<<"I\t\t\t\t\t\tINGRESE UNA OPCION VALIDA[1-4]\n";
 		}
 	}while(opt!=3);
