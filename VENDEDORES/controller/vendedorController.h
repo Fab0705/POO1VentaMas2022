@@ -197,7 +197,7 @@ void menuVendedores()
 		case 3:system("cls");buscarVen();break;
 		case 4:system("cls");modificarVen();break;
 		case 5:system("cls");eliminarVen();break;
-		case 6:cout<<"\t\t\t\t\t\tGracias por usar nuestro programa\n";break;
+		case 6:cout<<"\t\t\t\t\t\tGracias por usar nuestro programa!!\n";break;
 		default:system("cls");cout<<"\t\t\t\t\t\tINGRESE UNA OPCION VALIDA[1-6]\n";
 		}
 	}

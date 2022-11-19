@@ -249,7 +249,7 @@ void menuProductos()
 		case 4:system("cls");buscarPro();break;
 		case 5:system("cls");modificarPro();break;
 		case 6:system("cls");eliminarPro();break;
-		case 7:cout<<"\t\t\t\t\t\tGracias por usar nuestro programa\n";break;
+		case 7:cout<<"\t\t\t\t\t\tGracias por usar nuestro programa!!\n";break;
 		default:system("cls");cout<<"I\t\t\t\t\t\tNGRESE UNA OPCION VALIDA[1-6]\n";
 		}
 	}while(opt!=7);
@@ -455,7 +455,7 @@ void modificarPro()
 		}
 		else
 		{
-			cout<<"No encontro el registro a modificar!\n";
+			cout<<"No se encontro el registro a modificar!\n";
 			system("pause");
 			menuProductos();
 		}

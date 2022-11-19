@@ -133,12 +133,12 @@ void generarVenta(string vendedor)
 			{
 				do
 				{
-					cout<<"Selecciona el codigo del producto a comprar: "<<endl;
+					cout<<"Ingrese el codigo del producto a comprar: "<<endl;
 					cin>>codPro;
-					cout<<"Selecciona la cantidad de productos a comprar: "<<endl;
+					cout<<"Ingrese la cantidad de productos a comprar: "<<endl;
 					cin>>cantPro;
 					buscarProdCom(codPro, cantPro);
-					cout<<"Desea seguir comprando de este producto?(S/s): ";
+					cout<<"Desea seguir comprando este producto?(S/s): ";
 					cin>>flagC;
 				} while(flagC == "S" || flagC == "s");
 				cout<<"\t--------------------------DETALLE COMPRA----------------------------\n";
@@ -245,7 +245,7 @@ void eliminarProCom()
 	if(objEliminar.getNomProdCom() !="Error")
 	{
 		detCompraController->remove(objEliminar);
-		cout<<"\t\t\t\tRegistro eliminado satisfactoriamente!!!";
+		cout<<"\t\t\t\tRegistro eliminado satisfactoriamente!!";
 	}
 	else
 	{
