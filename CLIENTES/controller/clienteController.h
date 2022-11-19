@@ -377,7 +377,7 @@ void modificar()
 						estado = cliController->modificar(cliObj,nomM,dniM,edadM);
 						break;
 					}
-					default:system("cls");"Ingrese una opcion valida[1-3]: ";
+					default:system("cls");"IINGRESE UNA OPCION VALIDA[1-3]: ";
 				}
 			} while(opt != 4);
 			
@@ -441,8 +441,8 @@ void menuClientesPersonal()
 		{
 		case 1:system("cls");listOfItems();break;
 		case 2:system("cls");buscarxNom();break;
-		case 3:cout<<"\t\t\t\t\t\tGracias por usar nuestro programa\n";break;
-		default:system("cls");cout<<"\t\t\t\t\t\tINGRESE UNA OPCION CORRECTA[1-3]\n";
+		case 3:cout<<"\t\t\t\t\t\tGracias por usar nuestro programa!!\n";break;
+		default:system("cls");cout<<"\t\t\t\t\t\tINGRESE UNA OPCION VALIDA[1-3]\n";
 		}
 	}
 	while(opt!=3);
