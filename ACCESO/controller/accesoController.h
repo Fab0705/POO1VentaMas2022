@@ -12,6 +12,7 @@
 #include"../../CATEGORIAS/controller/categoriaController.h"
 #include"../../VENDEDORES/controller/vendedorController.h"
 #include"../../VENTA/controller/detalleCompraController.h"
+#include"../../VENTA/controller/ventaController.h"
 
 using namespace std;
 void menuDeAcceso();
@@ -316,7 +317,8 @@ AccesoControllerAdm* accAdmController = new AccesoControllerAdm();
 				cout<<"\t\t\t\t\t******************VENDEDORES******************[2]\n\n";
 				cout<<"\t\t\t\t\t******************PRODUCTOS*******************[3]\n\n";
 				cout<<"\t\t\t\t\t******************CATEGORIAS******************[4]\n\n";
-				cout<<"\t\t\t\t\t********************SALIR*********************[5]\n\n";
+				cout<<"\t\t\t\t\t*******************VENTAS*********************[5]\n\n";
+				cout<<"\t\t\t\t\t********************SALIR*********************[6]\n\n";
 				cout<<"\t\t\t\t\t***************INGRESE UNA OPCION***************: ";
 				cin>>opt;
 				switch(opt)
@@ -325,10 +327,11 @@ AccesoControllerAdm* accAdmController = new AccesoControllerAdm();
 				case 2:system("cls");menuVendedores();break;
 				case 3:system("cls");menuProductos();break;
 				case 4:system("cls");menuCategorias();break;
-				case 5:system("cls");cout<<"";break;
-				default:cout<<"INGRESE UNA OPCION CORRECTA[1-4]\n";
+				case 5:system("cls");menuDeVentas();break;		
+				case 6:system("cls");cout<<"\t\t\t\t\t\tGracias por usar nuestro programa\n";break;
+				default:cout<<"INGRESE UNA OPCION CORRECTA[1-6]\n";
 				}
-			} while(opt!=5);
+			} while(opt!=6);
 		}
 		
 		void menuPersonal(string usu)
@@ -352,8 +355,8 @@ AccesoControllerAdm* accAdmController = new AccesoControllerAdm();
 				case 2:system("cls");menuClientesPersonal();break;
 				case 3:system("cls");menuProductosPersonal();break;
 				case 4:system("cls");menuCategoriasPersonal();break;
-				case 5:system("cls");cout<<"";break;
-				default:cout<<"INGRESE UNA OPCION CORRECTA[1-4]\n";
+				case 5:system("cls");cout<<"\t\t\t\t\t\tGracias por usar nuestro programa\n";break;
+				default:cout<<"INGRESE UNA OPCION CORRECTA[1-5]\n";
 				}
 			} while(opt!=5);
 		}
