@@ -78,6 +78,7 @@ public:
 };
 
 DetalleCompraController* detCompraController = new DetalleCompraController();
+DetalleVentaController* detVentaController = new DetalleVentaController();
 DetalleCompra objDetCompra;
 
 float importe;
@@ -291,14 +292,15 @@ int buscarxNomCompra()
 
 string generarFecha()
 {
+	//	fecha/hora basado en el sistema actual
 	time_t now = time(0);
+	//	objeto de una estructura tm con fecha/hora actual
 	tm* time = localtime(&now);
-
-	int anio = 1900 + time->tm_year;
-	int mes = time->tm_mon + 1;
-	int dia = time->tm_mday;
-
-	return to_string(dia) + "/" + to_string(month) + "/" + to_string(anio);
+	
+	int year = 1900 + time->tm_year; 
+	int month = time->tm_mon + 1;
+	
+	return to_string(time->tm_mday) + "/" +to_string(month) + "/" + to_string(year);
 }
 
 int generarSerie(int i)
