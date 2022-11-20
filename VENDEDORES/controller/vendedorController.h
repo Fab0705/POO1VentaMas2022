@@ -306,6 +306,7 @@ void modificarVen()
 		{
 			cout<<"\t\t\t\t\t\tModificando Campos\n";
 			cout<<"\t\t\t\t\t\tModificando el Nombre...:";	
+			cin.ignore();
 			getline(cin,nomApeVen);
 			cout<<"\t\t\t\t\t\tModificando la direccion...:";
 			getline(cin,dir);
