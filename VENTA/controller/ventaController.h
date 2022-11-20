@@ -10,7 +10,6 @@ void listarVentas();
 void buscarVenta();
 void eliminarVenta();
 string dameNomCli(int);
-string generarSerie(int);
 
 using namespace std;
 
@@ -95,7 +94,7 @@ public:
 			archivoVenta.open("venta.csv",ios::app);
 			if(archivoVenta.is_open())
 			{
-				archivoVenta<<obj.getCodVenta()<<";"<<obj.getCodCliVen()<<";"<<obj.getFechaVen()<<";"<<generarSerie(obj.getCodVenta())<<";"<<obj.getTotalVen()<<";"<<obj.getVendedor()<<";"<<endl;
+				archivoVenta<<obj.getCodVenta()<<";"<<obj.getCodCliVen()<<";"<<obj.getFechaVen()<<";"<<obj.getCodVenta()<<";"<<obj.getTotalVen()<<";"<<obj.getVendedor()<<";"<<endl;
 				archivoVenta.close();					
 			}
 		}
