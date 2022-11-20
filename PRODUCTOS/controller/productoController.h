@@ -381,6 +381,7 @@ void modificarPro()
 			cout<<"\t\t\t\t\t\tModificando el Precio...: ";
 			cin>>precio;
 			cout<<"\t\t\t\t\t\tModificando el Nombre...: ";
+			cin.ignore();
 			getline(cin, nomP);
 			cout<<"\t\t\t\t\t\tModificando el Codigo de la Categoria...: ";
 			cin>>codCate;
