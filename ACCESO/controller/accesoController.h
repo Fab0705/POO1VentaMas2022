@@ -351,7 +351,7 @@ AccesoControllerAdm* accAdmController = new AccesoControllerAdm();
 				cin>>opt;
 				switch(opt)
 				{
-				case 1:system("cls");generarCompra();break;
+				case 1:system("cls");generarCompra(usu);break;
 				case 2:system("cls");menuClientesPersonal();break;
 				case 3:system("cls");menuProductosPersonal();break;
 				case 4:system("cls");menuCategoriasPersonal();break;
