@@ -11,7 +11,7 @@ void listOfItemsCat();
 void buscarCat();
 void modificarCat();
 void eliminarCat();
-int generarCod_0(int)
+int generarCod_0(int);
 string dameNomCat(int);
 
 class CategoriaController
