@@ -218,7 +218,8 @@ AccesoControllerAdm* accAdmController = new AccesoControllerAdm();
 				cout<<"\n\n\n\n\n\n\n\n\n\n";
 				cout<<"\t\t\t\t\t\t*******ACCESO DE PERSONAL********\n";
 				cout<<"\t\t\t\t\t\tUSUARIO: ";
-				cin>>usu;
+				cin.ignore();
+				getline(cin, usu);
 				cout<<"\t\t\t\t\t\tCONTRASENIA: ";
 				//cin>>contra;
 				caracter = getch();//al momento de ingresar la contrasena, getch no muestra el caracter que se ingreso, por eso mas abajo hay un cout con en *
