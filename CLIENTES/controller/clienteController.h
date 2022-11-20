@@ -327,8 +327,8 @@ void modificar()
 		{
 			cout<<"\t\t\t\t\t\tModificando Campos\n";
 			cout<<"\t\t\t\t\t\tModificando el Nombre...:";	
-			getline(cin,nomM);
-			cin.ignore();	
+			cin.ignore();
+			getline(cin,nomM);	
 			cout<<"\t\t\t\t\t\tModificando el DNI...:";
 			cin>>dniM;
 			cout<<"\t\t\t\t\t\tModificando la edad...:";
