@@ -114,7 +114,7 @@ public:
 			{
 				for(Venta x:vectorVenta)
 				{
-					archivoVenta<<x.getCodVenta()<<";"<<x.getCodCliVen()<<";"<<x.getFechaVen()<<";"<<x.getSerieVen()<<";"<<x.getTotalVen()<<";"<<x.getVendedor()<<";"<<endl;
+					archivoVenta<<x.getCodVenta()<<";"<<x.getCodCliVen()<<";"<<x.getFechaVen()<<";"<<x.getTotalVen()<<";"<<x.getVendedor()<<";"<<endl;
 				}
 				archivoVenta.close();					
 			}
@@ -132,7 +132,7 @@ public:
 			int 	i;
 			size_t 	posi;
 			string 	linea;
-			string 	temporal[6];
+			string 	temporal[5];
 			fstream	archivoVenta;
 			archivoVenta.open("venta.csv",ios::in);
 			if(archivoVenta.is_open())
@@ -148,7 +148,7 @@ public:
 					}
 					
 					Venta objVenta(stoi(temporal[0]),stoi(temporal[1]),
-									   temporal[2],temporal[3],stof(temporal[4]),temporal[5]);
+									   temporal[2],stof(temporal[3]),temporal[4]);
 					
 					add(objVenta);
 				}
@@ -197,7 +197,6 @@ void listarVentas()
 	{
 		cout<<"\t\t"<<ventaController->get(i).getCodVenta()<<"     \t\t"<<dameNomCli(ventaController->get(i).getCodCliVen())<<"\t"
 			<<ventaController->get(i).getFechaVen()<<"\t\t"
-			<<ventaController->get(i).getSerieVen()<<"\t\t"
 			<<ventaController->get(i).getTotalVen()<<"\t\t"
 			<<ventaController->get(i).getVendedor()<<endl;
 	}
@@ -222,7 +221,6 @@ void buscarVenta()
 		cout<<"\t\t\t\t\t\tCodigo de venta: "<<venObj.getCodVenta()<<"\n";
 		cout<<"\t\t\t\t\t\tCliente :"<<dameNomCli(venObj.getCodCliVen())<<"\n";
 		cout<<"\t\t\t\t\t\tFecha: "<<venObj.getFechaVen()<<"\n";
-		cout<<"\t\t\t\t\t\tSerie: "<<venObj.getSerieVen()<<"\n";
 		cout<<"\t\t\t\t\t\tTotal: "<<venObj.getTotalVen()<<"\n";
 		cout<<"\t\t\t\t\t\tVendedor: "<<venObj.getVendedor()<<"\n";
 		
