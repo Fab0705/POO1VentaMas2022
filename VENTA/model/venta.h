@@ -15,7 +15,7 @@ public:
 	Venta(){}
 	Venta(int codigoVenta, int codigoCliente, string fecha, float total, string vendedor)
 	{
-		this->codigoVenta = codigoVenta;
+		this->codigoVenta = codaigoVenta;
 		this->codigoCliente = codigoCliente;
 		this->fecha = fecha;
 		this->total = total;
