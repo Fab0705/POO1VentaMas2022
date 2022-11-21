@@ -2,7 +2,7 @@
 #include <iostream>
 
 using namespace std;
-
+a
 class Venta
 {
 private:
