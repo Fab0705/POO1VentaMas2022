@@ -129,7 +129,7 @@ AccesoControllerAdm* accAdmController = new AccesoControllerAdm();
 				cout<<"\t\t\t\t\t*******REGISTRAR PERSONAL*******[1]\n\n";
 				cout<<"\t\t\t\t\t*******ACCESO DE PERSONAL*******[2]\n\n";
 				cout<<"\t\t\t\t\t*************SALIR**************[3]\n\n";
-				cout<<"\t\t\t\t\t******Ingrese una opci�n*********: ";
+				cout<<"\t\t\t\t\t******Ingrese una opciï¿½n*********: ";
 				cin>>opt;
 				switch(opt)
 				{
@@ -215,10 +215,10 @@ AccesoControllerAdm* accAdmController = new AccesoControllerAdm();
 					cout<<"usuario: "<<usuDesencript[i]<<endl;
 					cout<<"contraDesencript "<<desencriptar(contraDesencript[i])<<endl;
 				}
+				cin.ignore();
 				cout<<"\n\n\n\n\n\n\n\n\n\n";
 				cout<<"\t\t\t\t\t\t*******ACCESO DE PERSONAL********\n";
 				cout<<"\t\t\t\t\t\tUSUARIO: ";
-				cin.ignore();
 				getline(cin, usu);
 				cout<<"\t\t\t\t\t\tCONTRASENIA: ";
 				//cin>>contra;
@@ -342,7 +342,7 @@ AccesoControllerAdm* accAdmController = new AccesoControllerAdm();
 			{
 				system("cls");
 				cout<<"\n\n\n\n\n\n\n\n";
-				cout<<"\t\t\t\t\t********BIENVENIDO AL MENU DEL PERSONAL "<<usu<<"**********\n\n";
+				cout<<"\t\t\t\t******** BIENVENIDO AL MENU DEL PERSONAL: "<<usu<<" **********\n\n";
 				cout<<"\t\t\t\t\t****************GENERAR VENTA*****************[1]\n\n";
 				cout<<"\t\t\t\t\t*******************CLIENTES*******************[2]\n\n";
 				cout<<"\t\t\t\t\t******************PRODUCTOS*******************[3]\n\n";
@@ -352,7 +352,7 @@ AccesoControllerAdm* accAdmController = new AccesoControllerAdm();
 				cin>>opt;
 				switch(opt)
 				{
-				case 1:system("cls");generarCompra(usu);break;
+				case 1:system("cls");generarVenta(usu);break;
 				case 2:system("cls");menuClientesPersonal();break;
 				case 3:system("cls");menuProductosPersonal();break;
 				case 4:system("cls");menuCategoriasPersonal();break;
