@@ -4,6 +4,7 @@
 #include<fstream>
 #include"../model/venta.h"
 #include"../../CLIENTES/controller/clienteController.h"
+#include"../../VIEW/interfazdemas.h"
 
 void menuDeVentas();
 void listarVentas();
@@ -168,6 +169,8 @@ void menuDeVentas()
 	int opt;
 	do
 	{
+		interfazDemasG();
+		gotoxyD(0,2);
 		cout<<"\n\n\n\n\n\n\n\n";
 		cout<<"\t\t\t\t\t\t*************MENU DE VENTAS************\n\n";
 		cout<<"\t\t\t\t\t\t**********LISTAR VENTAS**************[1]\n\n";
@@ -208,6 +211,8 @@ void listarVentas()
 
 void buscarVenta()
 {
+	interfazDemasG();
+	gotoxyD(0,5);
 	int cod,
 		inferior,
 		superior;
@@ -238,6 +243,8 @@ void buscarVenta()
 
 void eliminarVenta()
 {
+	interfazDemasG();
+	gotoxyD(0,5);
 	int cod,
 		inferior,
 		superior;
