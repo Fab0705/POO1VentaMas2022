@@ -19,7 +19,7 @@ void eliminarProCom();
 void listarProCom();
 int buscarxNomCompra();
 string generarFecha();
-int generarSerie(int);
+string generarSerie(string);
 
 class DetalleCompraController
 {
@@ -86,13 +86,13 @@ float total = 0;
 
 void generarVenta(string vendedor)
 {
-	int codPro,
+	int	codPro,
 		codCli,
 		cantPro,
 		codEli,
-		codVenta,
 		cont = 0;
-	string fecha,
+	string	fecha,
+			codVenta,
 			nomPro,
 			flag,
 			flagE,
@@ -126,6 +126,7 @@ void generarVenta(string vendedor)
 		{
 			cout<<"Ingrese el nombre del producto a buscar: "<<endl;
 			cin>>nomPro;
+			
 		}
 		if(proController->buscarPorNombre(nomPro) == true)
 		{
@@ -136,6 +137,7 @@ void generarVenta(string vendedor)
 				{
 					cout<<"Ingrese el codigo del producto a comprar: "<<endl;
 					cin>>codPro;
+					cin.ignore();
 					cout<<"Ingrese la cantidad de productos a comprar: "<<endl;
 					cin>>cantPro;
 					buscarProdCom(codPro, cantPro);
@@ -181,8 +183,8 @@ void generarVenta(string vendedor)
 		cout<<"\n\n\n\t\t-------------------------GRACIAS POR CONFIAR EN VENTAMAS-----------------------------";
 		listarProCom();
 		//----------------------GRABAR EN ARCHIVO VENTA-------------------------//
-		codVenta = generarSerie(ventaController->getCorrelativo());
-		Venta objVenta(codVenta,codCli,fecha,total,vendedor);
+		codVenta = generarSerie(to_string(ventaController->getCorrelativo()));
+		Venta objVenta(stoi(codVenta),codCli,fecha,total,vendedor);
 		/*Agregar el objeto al arreglo*/
 		ventaController->add(objVenta);
 		//grabar en archivo
@@ -193,7 +195,7 @@ void generarVenta(string vendedor)
 			for(int i = 0; i<detCompraController->size(); i++)
 			{
 				//crear objeto
-				DetalleVenta objDetVenta(codVenta,detCompraController->get(i).getCodProCom(), detCompraController->get(i).getCantProdCom(), detCompraController->get(i).getPrecProdCom(), detCompraController->get(i).getImCom());
+				DetalleVenta objDetVenta(stoi(codVenta),detCompraController->get(i).getCodProCom(), detCompraController->get(i).getCantProdCom(), detCompraController->get(i).getPrecProdCom(), detCompraController->get(i).getImCom());
 				//agregarlo al arreglo de objetos
 				detVentaController->add(objDetVenta);
 				//grabar en archivo
@@ -292,20 +294,22 @@ int buscarxNomCompra()
 
 string generarFecha()
 {
-	//	fecha/hora basado en el sistema actual
 	time_t now = time(0);
-	//	objeto de una estructura tm con fecha/hora actual
 	tm* time = localtime(&now);
-	
-	int year = 1900 + time->tm_year; 
-	int month = time->tm_mon + 1;
-	
-	return to_string(time->tm_mday) + "/" +to_string(month) + "/" + to_string(year);
+
+	int anio = 1900 + time->tm_year;
+	int mes = time->tm_mon + 1;
+	int dia = time->tm_mday;
+
+	return to_string(dia) + "/" + to_string(mes) + "/" + to_string(anio);
 }
 
-int generarSerie(int i)
+string generarSerie(string str)
 {	
-	cout.fill  ('0');    
-	cout.width ( 8 );
-	return i;
+	string s;
+	size_t n = 8;
+	int precision = n - std::min(n, str.size());
+	s = string(precision, '0').append(str);
+	
+	return s;
 }
