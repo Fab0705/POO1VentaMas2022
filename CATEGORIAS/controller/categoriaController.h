@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include"../model/categoria.h"
+#include"../../VIEW/interfazdemas.h"
 #include<fstream>
 using namespace std;
 void menuCategorias();
@@ -179,6 +180,8 @@ void menuCategorias()
 	int opt;
 	do
 	{
+		interfazDemasG();
+		gotoxyD(0,2);
 		cout<<"\n\n\n\n\n\n\n\n";
 		cout<<"\t\t\t\t\t\t*************MENU DE CATEGORIAS************\n\n";
 		cout<<"\t\t\t\t\t\t**********AGREGAR CATEGORIAS***********[1]\n\n";
@@ -204,6 +207,8 @@ void menuCategorias()
 
 void agrCategorias()
 {
+	interfazDemasG();
+	gotoxyD(0,10);
 	string categoria[10];
 	string nomCat;
 	string flag;
@@ -264,6 +269,8 @@ void listOfItemsCat()
 
 void buscarCat()
 {
+	interfazDemasG();
+	gotoxyD(0,10);
 	int cod,
 		inferior,
 		superior;
@@ -288,6 +295,8 @@ void buscarCat()
 
 void modificarCat()
 {
+	interfazDemasG();
+	gotoxyD(0,5);
 	int cod,
 		inferior,
 		superior;
@@ -334,6 +343,8 @@ void modificarCat()
 
 void eliminarCat()
 {
+	interfazDemasG();
+	gotoxyD(0,10);
 	int cod,
 		inferior,
 		superior;
@@ -372,6 +383,8 @@ void menuCategoriasPersonal()
 	int opt;
 	do
 	{
+		interfazDemasG();
+		gotoxyD(0,2);
 		cout<<"\n\n\n\n\n\n\n\n";
 		cout<<"\t\t\t\t\t\t************MENU DE CATEGORIAS*************\n\n";
 		cout<<"\t\t\t\t\t\t***********LISTAR CATEGORIAS************[1]\n\n";
