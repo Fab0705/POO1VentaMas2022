@@ -12,7 +12,7 @@ void buscar();
 void buscarxNom();
 void modificar();
 void eliminar();
-int generarCod_0(int);
+string generarCod_0(string);
 
 class ClienteController
 {
@@ -228,14 +228,14 @@ void addItems()
 {
 	string flag;
 	int 	cod;
-	int 	cod_0;
+	string 	cod_0;
 	string 	nCli;
 	string	dni;
 	int 	edad;
 	do
 	{
 		cod = cliController->getCorrelativo();
-		cod_0 = generarCod_0(cod);
+		cod_0 = generarCod_0(to_string(cod));
 		cout<<"\n\n\n\n\n\n\t\t\t\t\t\t******("<<cod<<")*******\n";
 		cin.ignore();
 		cout<<"\t\t\t\t\t\tNombres y Apellidos: ";
@@ -247,7 +247,7 @@ void addItems()
 		cout<<"\t\t\t\t\t\tContinuar(S/s): ";
 		cin>>flag;
 		/*Crear el objeto de tipo alumno*/
-		Cliente objCli(cod_0,nCli,dni,edad);
+		Cliente objCli(stoi(cod_0),nCli,dni,edad);
 		/*Agregar el objeto al arreglo*/
 		cliController->add(objCli);
 		//grabar en archivo
@@ -328,7 +328,7 @@ void modificar()
 			cout<<"\t\t\t\t\t\tModificando Campos\n";
 			cout<<"\t\t\t\t\t\tModificando el Nombre...:";	
 			cin.ignore();
-			getline(cin,nomM);	
+			getline(cin,nomM);
 			cout<<"\t\t\t\t\t\tModificando el DNI...:";
 			cin>>dniM;
 			cout<<"\t\t\t\t\t\tModificando la edad...:";
@@ -471,9 +471,12 @@ void buscarxNom()
 	system("cls");
 }
 
-int generarCod_0(int i)
+string generarCod_0(string str)
 {	
-	cout.fill  ('0');    
-	cout.width ( 8 );
-	return i;
+	string s;
+	size_t n = 8;
+	int precision = n - std::min(n, str.size());
+	s = string(precision, '0').append(str);
+	
+	return s;
 }
