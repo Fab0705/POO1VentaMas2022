@@ -13,6 +13,8 @@
 #include"../../VENDEDORES/controller/vendedorController.h"
 #include"../../VENTA/controller/detalleCompraController.h"
 #include"../../VENTA/controller/ventaController.h"
+#include"../../VIEW/interfaz grafica ascii.h"
+#include"../../VIEW/interfazdemas.h"
 
 using namespace std;
 void menuDeAcceso();
@@ -123,6 +125,8 @@ AccesoControllerAdm* accAdmController = new AccesoControllerAdm();
 				int opt;
 				do
 				{
+				interfazG();
+				gotoxy(0,2);
 				cout<<"\n\n\n\n\n\n\n\n";
 				cout<<"\t\t\t\t\t*******BIENVENIDO A VENTAMAS*******\n\n";
 				cout<<"\t\t\t\t\t**********MENU DE ACCESO***********\n\n";
@@ -158,6 +162,8 @@ AccesoControllerAdm* accAdmController = new AccesoControllerAdm();
 			string usu;
 			string contra;
 			string flag;
+			interfazG();
+			gotoxy(0,2);
 			cout<<"\n\n\n\n\n\n\n\n\n\n	";
 			cout<<"\t\t\t\t\t\t*******REGISTRAR PERSONAL********\n";
 			
@@ -215,6 +221,8 @@ AccesoControllerAdm* accAdmController = new AccesoControllerAdm();
 					cout<<"usuario: "<<usuDesencript[i]<<endl;
 					cout<<"contraDesencript "<<desencriptar(contraDesencript[i])<<endl;
 				}
+				interfazG();
+				gotoxy(0,2);
 				cin.ignore();
 				cout<<"\n\n\n\n\n\n\n\n\n\n";
 				cout<<"\t\t\t\t\t\t*******ACCESO DE PERSONAL********\n";
@@ -311,6 +319,8 @@ AccesoControllerAdm* accAdmController = new AccesoControllerAdm();
 			int opt;
 			do
 			{
+				interfazDemasG();
+				gotoxyD(0,2);
 				system("cls");
 				cout<<"\n\n\n\n\n\n\n\n";
 				cout<<"\t\t\t\t\t******BIENVENIDO AL MENU DE ADMINISTRADOR*******\n\n";
@@ -340,6 +350,8 @@ AccesoControllerAdm* accAdmController = new AccesoControllerAdm();
 			int opt;
 			do
 			{
+				interfazDemasG();
+				gotoxyD(0,2);
 				system("cls");
 				cout<<"\n\n\n\n\n\n\n\n";
 				cout<<"\t\t\t\t******** BIENVENIDO AL MENU DEL PERSONAL: "<<usu<<" **********\n\n";
