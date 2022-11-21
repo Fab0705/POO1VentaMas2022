@@ -21,3 +21,4 @@ string desencriptar(string texto)
 	}
 	return texto;
 }
+
