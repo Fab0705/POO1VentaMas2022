@@ -8,6 +8,8 @@
 #include"../model/producto.h"
 #include"../../CATEGORIAS/model/categoria.h"
 #include"../../CATEGORIAS/controller/categoriaController.h"
+#include"../../VIEW/interfazdemas.h"
+#include"../../VIEW/interfaz grafica ascii.h"
 #include<fstream>
 using namespace std;
 void menuProductos();
@@ -230,6 +232,8 @@ void menuProductos()
 	int opt;
 	do
 	{
+		interfazDemasG();
+		gotoxyD(0,2);
 		cout<<"\n\n\n\n\n\n\n\n";
 		cout<<"\t\t\t\t\t\t*************MENU DE PRODUCTOS************\n\n";
 		cout<<"\t\t\t\t\t\t********AGREGAR NUEVOS PRODUCTOS*******[1]\n\n";
@@ -258,6 +262,8 @@ void menuProductos()
 
 void addItemsPro()
 {
+	interfazDemasG();
+	gotoxyD(0,7);
 	string flag;
 	int 	cod;
 	string 	cod_0;
@@ -321,6 +327,8 @@ void listOfItemsPro()
 
 void buscarPro()
 {
+	interfazDemasG();
+	gotoxyD(0,13);
 	int cod,
 		inferior,
 		superior;
@@ -348,6 +356,8 @@ void buscarPro()
 
 void modificarPro()
 {
+	interfazDemasG();
+	gotoxyD(0,2);
 	int cod,
 		inferior,
 		superior;
@@ -471,6 +481,8 @@ void modificarPro()
 
 void eliminarPro()
 {
+	interfazDemasG();
+	gotoxyD(0,13);
 	int cod,
 		inferior,
 		superior;
@@ -517,6 +529,8 @@ void menuProductosPersonal()
 	int opt;
 	do
 	{
+		interfazDemasG();
+		gotoxyD(0,2);
 		cout<<"\n\n\n\n\n\n\n\n";
 		cout<<"\t\t\t\t\t\t*************MENU DE PRODUCTOS************\n\n";
 		cout<<"\t\t\t\t\t\t***********LISTAR PRODUCTOS************[1]\n\n";
