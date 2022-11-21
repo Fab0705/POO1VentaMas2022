@@ -19,7 +19,7 @@ void buscarPro();
 void modificarPro();
 void eliminarPro();
 void listadoProductoCat();
-int generarCod_0(int);
+string generarCod_0_Prod(string);
 string removeCod_0(string);
 
 COORD coord = {0,0};
@@ -260,9 +260,9 @@ void addItemsPro()
 {
 	string flag;
 	int 	cod;
-	int 	cod_0;
+	string 	cod_0;
 	int 	codCat;
-	int		codCat_0;
+	string	codCat_0;
 	string 	nPro;
 	float	prePro;
 	int 	stck;
@@ -270,7 +270,7 @@ void addItemsPro()
 	{
 		
 		cod = proController->getCorrelativo();
-		cod_0 = generarCod_0(cod);
+		cod_0 = generarCod_0_Prod(to_string(cod));
 		cout<<"\t\t\t\t\t\t******("<<cod<<")*******\n";
 		cin.ignore();
 		cout<<"\t\t\t\t\t\tNombre del producto:";
@@ -288,12 +288,12 @@ void addItemsPro()
 		cout<<"\t\t\t\t\t\tIngrese el codigo: "<<endl;
 		cin>>codCat;
 
-		codCat_0 = generarCod_0(codCat);
+		codCat_0 = generarCod_0_Prod(to_string(codCat));
 
 		cout<<"\t\t\t\t\t\tContinuar(S/s): ";
 		cin>>flag;
 		/*Crear el objeto de tipo producto*/
-		Producto objPro(cod_0,stck,prePro,nPro,codCat_0);
+		Producto objPro(stoi(cod_0),stck,prePro,nPro,stoi(codCat_0));
 		/*Agregar el objeto al arreglo*/
 		proController->add(objPro);
 		//grabar en archivo
@@ -380,8 +380,8 @@ void modificarPro()
 			cin>>stock;
 			cout<<"\t\t\t\t\t\tModificando el Precio...: ";
 			cin>>precio;
-			cout<<"\t\t\t\t\t\tModificando el Nombre...: ";
 			cin.ignore();
+			cout<<"\t\t\t\t\t\tModificando el Nombre...: ";
 			getline(cin, nomP);
 			cout<<"\t\t\t\t\t\tModificando el Codigo de la Categoria...: ";
 			cin>>codCate;
@@ -536,11 +536,14 @@ void menuProductosPersonal()
 	}while(opt!=4);
 }
 
-int generarCod_0(int i)
+string generarCod_0_Prod(string str)
 {	
-	cout.fill  ('0');    
-	cout.width ( 8 );
-	return i;
+	string s;
+	size_t n = 8;
+	int precision = n - std::min(n, str.size());
+	s = string(precision, '0').append(str);
+	
+	return s;
 }
 
 string removeCod_0(string str)
