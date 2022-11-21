@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include"../model/vendedor.h"
+#include"../../VIEW/interfazdemas.h"
 #include<fstream>
 using namespace std;
 void menuVendedores();
@@ -180,6 +181,8 @@ void menuVendedores()
 	int opt;
 	do
 	{
+		interfazDemasG();
+		gotoxyD(0,2);
 		cout<<"\n\n\n\n\n\n\n\n";
 		cout<<"\t\t\t\t\t\t*************MENU DE VENDEDORES************\n\n";
 		cout<<"\t\t\t\t\t\t********AGREGAR NUEVOS VENDEDORES*******[1]\n\n";
@@ -206,6 +209,8 @@ void menuVendedores()
 
 void agrVendedores()
 {
+	interfazDemasG();
+	gotoxyD(0,5);
 	string flag;
 	int 	cod;
 	string 	cod_0;
@@ -253,6 +258,8 @@ void listadoVen()
 
 void buscarVen()
 {
+	interfazDemasG();
+	gotoxyD(0,5);
 	int cod,
 		inferior,
 		superior;
@@ -279,6 +286,8 @@ void buscarVen()
 
 void modificarVen()
 {
+	interfazDemasG();
+	gotoxyD(0,5);
 	int cod,
 		inferior,
 		superior;
@@ -384,6 +393,8 @@ void modificarVen()
 
 void eliminarVen()
 {
+	interfazDemasG();
+	gotoxyD(0,5);
 	int cod,
 		inferior,
 		superior;
