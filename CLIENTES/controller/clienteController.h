@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include"../model/cliente.h"
+#include"../../VIEW/interfazdemas.h"
 #include<fstream>
 using namespace std;
 void menuClientes();
@@ -200,6 +201,8 @@ void menuClientes()
 	int opt;
 	do
 	{
+		interfazDemasG();
+		gotoxyD(0,2);
 		cout<<"\n\n\n\n\n\n\n\n";
 		cout<<"\t\t\t\t\t\t*************MENU DE CLIENTES************\n\n";
 		cout<<"\t\t\t\t\t\t********AGREGAR NUEVOS CLIENTES*******[1]\n\n";
@@ -234,6 +237,8 @@ void addItems()
 	int 	edad;
 	do
 	{
+		interfazDemasG();
+		gotoxyD(0,2);
 		cod = cliController->getCorrelativo();
 		cod_0 = generarCod_0(to_string(cod));
 		cout<<"\n\n\n\n\n\n\t\t\t\t\t\t******("<<cod<<")*******\n";
@@ -273,6 +278,8 @@ void listOfItems()
 
 void buscar()
 {
+	interfazDemasG();
+	gotoxyD(0,2);
 	int cod,
 		inferior,
 		superior;
@@ -305,6 +312,8 @@ void modificar()
 		cont = 0;
 	inferior = 0;
 	superior = cliController->size()-1;
+	interfazDemasG();
+	gotoxyD(0,2);
 	cout<<"\n\n\n\n\n\n\t\t\t\t\t\tIngrese el codigo a modificar:";
 	cin>>cod;
 	Cliente cliObj = cliController->getBuscarPorCodigo(cod, inferior, superior);
@@ -409,6 +418,8 @@ void eliminar()
 		superior;
 	inferior = 0;
 	superior = cliController->size()-1;
+	interfazDemasG();
+	gotoxyD(0,2);
 	cout<<"\n\n\n\n\n\n\t\t\t\t\t\tIngrese codigo a eliminar:";
 	cin>>cod;
 	Cliente cliEliminar = cliController->getBuscarPorCodigo(cod, inferior, superior);
@@ -430,6 +441,8 @@ void menuClientesPersonal()
 	int opt;
 	do
 	{
+		interfazDemasG();
+		gotoxyD(0,2);
 		cout<<"\n\n\n\n\n\n\n\n";
 		cout<<"\t\t\t\t\t\t*************MENU DE CLIENTES************\n\n";
 		cout<<"\t\t\t\t\t\t***********LISTAR CLIENTES************[1]\n\n";
@@ -450,6 +463,8 @@ void menuClientesPersonal()
 
 void buscarxNom()
 {
+	interfazDemasG();
+	gotoxyD(0,2);
 	string nom;
 	cout<<"\n\n\n\n\n\n\t\t\t\t\t\tIngrese el nombre a buscar: ";
 	cin.ignore();
